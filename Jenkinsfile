@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('build docker image') {
       steps {
-        sh 'docker build . -t boltpius/femiproject:latest '
+        sh 'sudo docker build . -t boltpius/femiproject:latest '
       }
     }
 
