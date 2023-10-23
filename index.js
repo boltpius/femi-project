@@ -6,7 +6,7 @@ const http = require('http');
   const server = http.createServer((req, res) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
-    res.end(`Hello, work test world! from ${hostname}`);
+    res.end(`Hi there! I'm being served from ${hostname}`);
   });
 
   server.listen(port, hostname, () => {
