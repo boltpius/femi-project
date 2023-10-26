@@ -1,12 +1,6 @@
 pipeline {
   agent any
   stages {
-    stage('build docker image') {
-      steps {
-        sh 'aws ec2 describe-instances'
-      }
-    }
-
     stage('aws cli') {
       steps {
         sh 'aws --version '
@@ -16,6 +10,12 @@ pipeline {
     stage('aws ecr login') {
       steps {
         sh 'aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/a0i7l2w3'
+      }
+    }
+
+    stage('build docker image') {
+      steps {
+        sh 'docker build . -t femi.project'
       }
     }
 
