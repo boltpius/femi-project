@@ -21,7 +21,7 @@ pipeline {
 
   }
   environment {
-    AWS_ACCESS_KEY_ID = 'credentials(\'AKIA2FK2QOWHFGB6GQQI\')'
-    AWS_SECRET_ACCESS_KEY = 'credentials(\'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\')'
+    AWS_ACCESS_KEY_ID = 'AKIA2FK2QOWHFGB6GQQI'
+    AWS_SECRET_ACCESS_KEY = '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'
   }
 }
