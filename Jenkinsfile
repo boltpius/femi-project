@@ -19,6 +19,12 @@ pipeline {
       }
     }
 
+    stage('tag and push to ecr ') {
+      steps {
+        sh 'docker tag femi.project:latest public.ecr.aws/a0i7l2w3/femi.project:latest'
+      }
+    }
+
   }
   environment {
     AWS_ACCESS_KEY_ID = 'AKIA2FK2QOWHFGB6GQQI'
