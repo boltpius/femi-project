@@ -21,7 +21,9 @@ pipeline {
 
     stage('tag and push to ecr ') {
       steps {
-        sh 'docker tag femi.project:latest public.ecr.aws/a0i7l2w3/femi.project:latest'
+        sh '''docker tag femi.project:latest public.ecr.aws/a0i7l2w3/femi.project:latest
+docker push public.ecr.aws/a0i7l2w3/femi.project:latest
+'''
       }
     }
 
