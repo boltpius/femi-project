@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('build docker image') {
       steps {
-        sh 'aws describe-instances'
+        sh 'aws ec2 describe-instances'
       }
     }
 
