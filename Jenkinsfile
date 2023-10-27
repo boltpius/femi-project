@@ -28,8 +28,4 @@ docker push public.ecr.aws/a0i7l2w3/femi.project:latest
     }
 
   }
-  environment {
-    AWS_ACCESS_KEY_ID = 'AKIA2FK2QOWHFGB6GQQI'
-    AWS_SECRET_ACCESS_KEY = '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'
-  }
 }
