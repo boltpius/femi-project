@@ -9,7 +9,9 @@ pipeline {
 
     stage('aws ecr login') {
       steps {
-        sh 'aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/a0i7l2w3'
+        sh '''aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/a0i7l2w3'''
       }
     }
 
@@ -26,16 +28,16 @@ docker push public.ecr.aws/a0i7l2w3/femi.project:latest
 '''
       }
     }
+
     stage('Build and Deploy') {
-            steps {
-                script {
-                    // Use AWS_ACCESS_KEY_ID securely in your pipeline
-                    sh "aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID"
-                    sh "aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY"
-                    // Your AWS-related commands here
-                }
-            }
+      steps {
+        script {
+          sh "aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID"
+          sh "aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY"
         }
+
+      }
+    }
 
   }
   environment {
