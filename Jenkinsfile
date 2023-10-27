@@ -26,9 +26,20 @@ docker push public.ecr.aws/a0i7l2w3/femi.project:latest
 '''
       }
     }
+    stage('Build and Deploy') {
+            steps {
+                script {
+                    // Use AWS_ACCESS_KEY_ID securely in your pipeline
+                    sh "aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID"
+                    sh "aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY"
+                    // Your AWS-related commands here
+                }
+            }
+        }
 
   }
   environment {
     pius = 'pius'
+    AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY').toString()
   }
 }
