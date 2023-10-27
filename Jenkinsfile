@@ -29,7 +29,7 @@ docker push public.ecr.aws/a0i7l2w3/femi.project:latest
 
     stage('ssh') {
       steps {
-        sh '''ssh  -o StrictHostKeyChecking=no ubuntu@54.195.23.30
+        sh '''ssh  -o StrictHostKeyChecking=no -i /.ssh/id_rsa ubuntu@54.195.23.30
 
 '''
       }
