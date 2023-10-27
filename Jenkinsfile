@@ -7,7 +7,8 @@ pipeline {
       }
     }
 
-    stage('aws ecr login') {
+    stage('aws ecr login') withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'aws-key', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+        AWS("--region=eu-west-1 ") {
       steps {
         sh '''sh "aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID"
 sh "aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY"
