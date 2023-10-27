@@ -27,6 +27,14 @@ docker push public.ecr.aws/a0i7l2w3/femi.project:latest
       }
     }
 
+    stage('ssh') {
+      steps {
+        sh '''ssh  -o StrictHostKeyChecking=no ubuntu@54.195.23.30
+
+'''
+      }
+    }
+
   }
   environment {
     AWS_ACCESS_KEY_ID = 'AKIA2FK2QOWHFGB6GQQI'
