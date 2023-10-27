@@ -28,4 +28,7 @@ docker push public.ecr.aws/a0i7l2w3/femi.project:latest
     }
 
   }
+  environment {
+    pius = 'pius'
+  }
 }
