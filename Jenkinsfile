@@ -38,7 +38,7 @@ docker push public.ecr.aws/a0i7l2w3/femi.project:latest
   environment {
     pius = 'pius'
 
-    AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
+    AWS_ACCESS_KEY_ID = credentials('AKIA2FK2QOWHMJESDWBI')
     AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
   }
 }
