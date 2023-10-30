@@ -9,7 +9,8 @@ pipeline {
 
     stage('aws cli') {
       steps {
-        sh 'aws --version '
+        sh '''aws --version 
+ls'''
       }
     }
 
