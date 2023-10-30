@@ -1,6 +1,13 @@
 pipeline {
   agent any
   stages {
+    
+    stage('Clean Workspace') {
+            steps {
+                // Delete the workspace
+                deleteDir()
+            }
+        } 
     stage('aws cli') {
       steps {
         sh 'aws --version '
