@@ -7,16 +7,15 @@ pipeline {
       }
     }
 
-    stage('aws cli') {
-      steps {
-        sh '''# Use the environment variables here to access AWS
-                        # aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-                       # aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-                      
-                        aws ec2 describe-instances 
-ls'''
-      }
-    }
+  
+
+    stage('aws login') {
+            steps {
+                withAWS(credentials: 'aws-credentials', region: 'eu-west-1') {
+                    sh ' aws ec2 describe-instances '
+                }
+            }
+        }
 
     stage('aws ecr login') {
       steps {
