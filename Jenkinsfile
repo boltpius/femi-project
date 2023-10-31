@@ -7,14 +7,6 @@ pipeline {
       }
     }
 
-    stage('aws login') {
-      steps {
-        withAWS(credentials: 'aws-credentials', region: 'eu-west-1') {
-          sh ' aws ec2 describe-instances '
-        }
-
-      }
-    }
 
     stage('aws ecr login') {
       steps {
